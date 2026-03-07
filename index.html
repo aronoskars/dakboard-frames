@@ -5,6 +5,11 @@
     <title>Sorphirðu frame</title>
 
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
         .iframe-container {
             /* Set the dimensions of the visible area */
             width: 1000px;
@@ -12,6 +17,7 @@
             /* Hide the parts of the iframe that overflow these dimensions */
             overflow: hidden;
             position: relative; /* Establishes a positioning context for the iframe */
+            scrollbar-width: none;
         }
 
         .embedded-iframe {
@@ -20,11 +26,10 @@
             height: 1800px;
             /* Position the iframe to bring the desired section into the viewable area */
             position: absolute;
-            top: -800px;   /* Move up by 100px to hide the top part */
-            left: -50px;  /* Move left by 300px to hide the left part */
+            top: -980px;   /* Move up by 100px to hide the top part */
+            left: -70px;  /* Move left by 300px to hide the left part */
             border: 0px none; /* Optional: removes default iframe border */
-            /* Disable scrolling if the container provides the only required viewport */
-            scrolling: no;
+            filter: invert(100%);
         }
     </style>
 </head>
@@ -32,6 +37,13 @@
 <div class="iframe-container">
     <iframe src="https://reykjavik.is/sorphirdudagatal?a=Skeljagrandi+17&p=107" class="embedded-iframe"></iframe>
 </div>
+<script>
+    onload = function() {
+        setTimeout(function(){
+            window.scrollTo(0, 0);
+        }, 1000)
+    }
+</script>
 <!--<script>
     let url = 'https://reykjavik.is/sorphirdudagatal?a=Skeljagrandi+17&p=107';
 
