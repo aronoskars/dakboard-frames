@@ -49,8 +49,13 @@ jobs:
         with:
           path: sports/scores.json
           key: scores-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Stage both DAKboard frames
+        run: |
+          mkdir -p _site/sports _site/sorphirda
+          cp sports/{index.html,style.css,demo.js,scoreboard.js,scores.json} _site/sports/
+          cp sorphirda/index.html _site/sorphirda/
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: sports
+          path: _site
       - uses: actions/deploy-pages@v4
         id: deployment

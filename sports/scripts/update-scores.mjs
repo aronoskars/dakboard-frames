@@ -1,6 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const cachePath = 'site/scores.json';
+const cachePath = 'sports/scores.json';
 const cache = JSON.parse(await readFile(cachePath, 'utf8'));
 const iceland = JSON.parse(await readFile('data/iceland.json', 'utf8'));
 const now = Date.now();
